@@ -28,7 +28,11 @@ export class BooksController {
 
   @Post()
   async create(@Body() book: CreateBookDto): Promise<Book> {
-    return this.booksService.create(book);
+    // This is a mock user, normally you'd use something like req.user
+    const user = {
+      id: '65e9551b-7784-4f6b-8017-a30a5196c160',
+    };
+    return this.booksService.create(book, user);
   }
 
   @Put(':id')

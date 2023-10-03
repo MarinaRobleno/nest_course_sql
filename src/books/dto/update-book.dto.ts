@@ -5,6 +5,7 @@ import {
   IsEmpty,
   IsOptional,
 } from 'class-validator';
+import { User } from 'src/users/users.entity';
 
 export class UpdateBookDto {
   @IsEmpty({ message: 'ID must be empty' })
@@ -21,4 +22,7 @@ export class UpdateBookDto {
   @IsOptional()
   @IsString()
   author: string;
+
+  @IsEmpty({ message: 'ID must be empty' })
+  user: User;
 }

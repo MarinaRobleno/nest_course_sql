@@ -5,6 +5,7 @@ import {
   IsEmpty,
   IsOptional,
 } from 'class-validator';
+import { Book } from 'src/books/book.entity';
 
 export class CreateUserDto {
   @IsEmpty({ message: 'ID must be empty' })
@@ -17,4 +18,7 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsNumber()
   password: string;
+
+  @IsEmpty({ message: 'ID must be empty' })
+  books: Book[];
 }

@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsString, IsNumber, IsEmpty } from 'class-validator';
+import { User } from 'src/users/users.entity';
 
 export class CreateBookDto {
   @IsEmpty({ message: 'ID must be empty' })
@@ -15,4 +16,7 @@ export class CreateBookDto {
   @IsNotEmpty()
   @IsString()
   author: string;
+
+  @IsEmpty({ message: 'ID must be empty' })
+  user: User;
 }

@@ -27,11 +27,12 @@ export class BooksService {
   }
 
   // create a new book
-  async create(book: Book): Promise<Book> {
+  async create(book: Book, user): Promise<Book> {
     const newBook = this.booksRepository.create({
       name: book.name,
       price: book.price,
       author: book.author,
+      user: user.id,
     });
 
     return this.booksRepository.save(newBook);
